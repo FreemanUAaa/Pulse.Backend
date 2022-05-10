@@ -1,0 +1,17 @@
+﻿using System.Collections.Generic;
+
+namespace Pulse.Users.Core.Helpers.Extensions
+{
+    public static class ExtensionChaker
+    {
+
+        private static readonly List<string> coverAllowedExtension = new() {
+            ".png", ".jpg", ".jpeg", ".jfif", ".pjpeg", ".pjp"
+        };
+
+        public static bool IsCorrectCoverExtension(string extension)
+        {
+            return coverAllowedExtension.Contains(extension);
+        }
+    }
+}
