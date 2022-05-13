@@ -10,6 +10,8 @@ namespace Pulse.Users.Database
 
         public DbSet<Cover> Covers { get; set; }
 
+        public DbSet<MusicType> MusicTypes { get; set; }
+
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options) { }
     }
 }

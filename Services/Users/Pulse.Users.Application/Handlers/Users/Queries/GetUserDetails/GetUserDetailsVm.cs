@@ -18,7 +18,7 @@ namespace Pulse.Users.Application.Handlers.Users.Queries.GetUserDetails
 
         public string Website { get; set; }
 
-        public List<Guid> MusicTypeIds { get; set; }
+        public List<MusicType> MusicTypes { get; set; }
 
         public void Mapping(Profile profile) =>
             profile.CreateMap<User, GetUserDetailsVm>()
@@ -32,7 +32,7 @@ namespace Pulse.Users.Application.Handlers.Users.Queries.GetUserDetails
                     opt => opt.MapFrom(x => x.Website))
                 .ForMember(x => x.Location,
                     opt => opt.MapFrom(x => x.Location))
-                .ForMember(x => x.MusicTypeIds,
-                    opt => opt.MapFrom(x => x.MusicTypeIds));
+                .ForMember(x => x.MusicTypes,
+                    opt => opt.MapFrom(x => x.MusicTypes));
     }
 }

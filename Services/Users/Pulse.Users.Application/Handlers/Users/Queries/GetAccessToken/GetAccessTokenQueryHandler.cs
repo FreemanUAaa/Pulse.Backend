@@ -19,13 +19,13 @@ namespace Pulse.Users.Application.Handlers.Users.Queries.GetAccessToken
 {
     public class GetAccessTokenQueryHandler : IRequestHandler<GetAccessTokenQuery, string>
     {
-        private readonly ILogger<GetAccessTokenQuery> logger;
+        private readonly ILogger<GetAccessTokenQueryHandler> logger;
 
         private readonly IDatabaseContext database;
 
         private readonly AuthOptions auth;
 
-        public GetAccessTokenQueryHandler(IDatabaseContext database, IOptions<AuthOptions> auth, ILogger<GetAccessTokenQuery> logger) =>
+        public GetAccessTokenQueryHandler(IDatabaseContext database, IOptions<AuthOptions> auth, ILogger<GetAccessTokenQueryHandler> logger) =>
            (this.database, this.auth, this.logger) = (database, auth.Value, logger);
 
         public async Task<string> Handle(GetAccessTokenQuery request, CancellationToken cancellationToken)

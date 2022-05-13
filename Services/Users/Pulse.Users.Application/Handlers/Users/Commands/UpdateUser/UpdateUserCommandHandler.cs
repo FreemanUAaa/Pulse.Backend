@@ -6,6 +6,7 @@ using Pulse.Users.Core.Database;
 using Pulse.Users.Core.Exceptions;
 using Pulse.Users.Core.Models;
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -31,8 +32,21 @@ namespace Pulse.Users.Application.Handlers.Users.Commands.UpdateUser
                 throw new Exception(ExceptionStrings.NotFound);
             }
 
-            (user.Name, user.Website, user.Location, user.MusicTypeIds) = 
-                (request.Name, request.Website, request.Location, request.MusicTypeIds);
+            (user.Name, user.Website, user.Location) = 
+                (request.Name, request.Website, request.Location);
+
+            List<MusicType> musicTypes = new();
+
+            foreach (Guid musicTypeId in request.MusicTypeIds)
+            {
+                musicTypes.Add(new MusicType()
+                {
+                    Id = Guid.NewGuid(),
+                    MusicTypeId = musicTypeId
+                });
+            }
+
+            user.MusicTypes = musicTypes;
 
             database.Users.Update(user);
             await database.SaveChangesAsync(cancellationToken);

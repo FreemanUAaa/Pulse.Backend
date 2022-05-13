@@ -5,7 +5,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Pulse.Users.Application.Behaviors;
+using Pulse.Users.Application.Services;
 using Pulse.Users.Core.Options;
+using Pulse.Users.Core.Services;
 using System.Reflection;
 
 namespace Pulse.Users.Application
@@ -27,6 +29,8 @@ namespace Pulse.Users.Application
 
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CachingBehavior<,>));
+
+            services.AddTransient<IFileManager, FileManager>();
 
             AuthOptions authOptions = configuration.GetSection("Auth").Get<AuthOptions>();
 

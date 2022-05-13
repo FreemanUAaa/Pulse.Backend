@@ -19,6 +19,6 @@ namespace Pulse.Users.Core.Models
 
         public string PasswordHash { get; set; }
 
-        public List<Guid> MusicTypeIds { get; set; }
+        public List<MusicType> MusicTypes { get; set; }
     }
 }

@@ -40,7 +40,7 @@ namespace Pulse.Users.Application.Handlers.Covers.Commands.UpdateCover
 
             string fileExtension = Path.GetExtension(request.File.FileName);
 
-            if (ExtensionChaker.IsCorrectCoverExtension(fileExtension))
+            if (!ExtensionChaker.IsCorrectCoverExtension(fileExtension))
             {
                 throw new Exception(ExceptionStrings.ExtensionNotSupported);
             }

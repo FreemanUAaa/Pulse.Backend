@@ -7,7 +7,5 @@ namespace Pulse.Users.Application.Handlers.Covers.Commands.CreateCover
     public class CreateCoverCommand : IRequest<Guid>
     {
         public Guid UserId { get; set; }
-
-        public IFormFile File { get; set; }
     }
 }

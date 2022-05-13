@@ -21,7 +21,7 @@ namespace Pulse.Users.Application.Handlers.Covers.Commands.CreateCover
 
         public async Task<Guid> Handle(CreateCoverCommand request, CancellationToken cancellationToken)
         {
-            if (database.Users.Any(x => x.Id == request.UserId))
+            if (!database.Users.Any(x => x.Id == request.UserId))
             {
                 throw new Exception(ExceptionStrings.UserNotFound);
             }

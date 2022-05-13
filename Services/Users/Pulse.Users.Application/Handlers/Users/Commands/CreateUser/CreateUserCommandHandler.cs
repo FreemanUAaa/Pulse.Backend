@@ -39,7 +39,7 @@ namespace Pulse.Users.Application.Handlers.Users.Commands.CreateUser
                 Id = Guid.NewGuid(),
                 Name = request.Name,
                 Email = request.Email,
-                MusicTypeIds = new(),
+                MusicTypes = new(),
                 Location = "",
                 Website = "",
             };
@@ -49,7 +49,7 @@ namespace Pulse.Users.Application.Handlers.Users.Commands.CreateUser
 
             await userProducer.PublishUserCreatedAction(user.Id);
 
-            logger.LogInformation($"The user was created ID: {user.Id}");
+            logger.LogInformation("The user was created ID: {Id}", user.Id);
 
             return user.Id;
         }

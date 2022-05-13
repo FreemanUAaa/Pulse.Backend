@@ -27,7 +27,7 @@ namespace Pulse.Users.Application.Behaviors
             {
                 response = JsonSerializer.Deserialize<TResponse>(cacheData);
 
-                logger.LogInformation($"Fetched from Cache -> \"{request.CacheKey}\"");
+                logger.LogInformation("Fetched from Cache -> \"{CacheKey}\"", request.CacheKey);
 
                 return response;
             }
@@ -40,11 +40,11 @@ namespace Pulse.Users.Application.Behaviors
 
                 await cache.SetStringAsync(request.CacheKey, jsonResponse);
 
-                logger.LogInformation($"Added to Cache -> \"{request.CacheKey}\"");
+                logger.LogInformation("Added to Cache -> \"{CacheKey}\"", request.CacheKey);
             }
             catch
             {
-                logger.LogWarning($"Failed to add to cache -> \"{request.CacheKey}\"");
+                logger.LogWarning("Failed to add to cache -> \"{CacheKey}\"", request.CacheKey);
             }
 
             return response;

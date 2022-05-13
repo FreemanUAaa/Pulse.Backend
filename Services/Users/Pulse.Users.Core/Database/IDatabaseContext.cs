@@ -11,6 +11,8 @@ namespace Pulse.Users.Core.Database
 
         DbSet<Cover> Covers { get; set; }
 
+        DbSet<MusicType> MusicTypes { get; set; }
+
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }
