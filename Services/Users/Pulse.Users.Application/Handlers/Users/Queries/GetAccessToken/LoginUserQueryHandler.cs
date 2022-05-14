@@ -17,18 +17,18 @@ using System.Threading.Tasks;
 
 namespace Pulse.Users.Application.Handlers.Users.Queries.GetAccessToken
 {
-    public class GetAccessTokenQueryHandler : IRequestHandler<GetAccessTokenQuery, string>
+    public class LoginUserQueryHandler : IRequestHandler<LoginUserQuery, LoginUserVm>
     {
-        private readonly ILogger<GetAccessTokenQueryHandler> logger;
+        private readonly ILogger<LoginUserQueryHandler> logger;
 
         private readonly IDatabaseContext database;
 
         private readonly AuthOptions auth;
 
-        public GetAccessTokenQueryHandler(IDatabaseContext database, IOptions<AuthOptions> auth, ILogger<GetAccessTokenQueryHandler> logger) =>
+        public LoginUserQueryHandler(IDatabaseContext database, IOptions<AuthOptions> auth, ILogger<LoginUserQueryHandler> logger) =>
            (this.database, this.auth, this.logger) = (database, auth.Value, logger);
 
-        public async Task<string> Handle(GetAccessTokenQuery request, CancellationToken cancellationToken)
+        public async Task<LoginUserVm> Handle(LoginUserQuery request, CancellationToken cancellationToken)
         {
             User user = await database.Users.FirstOrDefaultAsync(x => x.Email == request.Email, cancellationToken: cancellationToken);
             ClaimsIdentity identity = GetIdentity(user);
@@ -57,7 +57,7 @@ namespace Pulse.Users.Application.Handlers.Users.Queries.GetAccessToken
 
             logger.LogInformation("The user has successfully entered");
 
-            return token;
+            return new LoginUserVm() { AccessToken = token, UserId = user.Id };
         }
 
         private static ClaimsIdentity GetIdentity(User user)

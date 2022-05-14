@@ -2,9 +2,9 @@
 
 namespace Pulse.Users.Application.Handlers.Users.Queries.GetAccessToken
 {
-    public class GetAccessTokenQueryValidator : AbstractValidator<GetAccessTokenQuery>
+    public class LoginUserQueryValidator : AbstractValidator<LoginUserQuery>
     {
-        public GetAccessTokenQueryValidator()
+        public LoginUserQueryValidator()
         {
             RuleFor(x => x.Email).NotEmpty();
 

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option csharp_namespace = "Pulse.Users.Grpc.Server";
+
+package grpcUsers;
+
+service GrpcUsers {
+  rpc IsExists (UserIsExistsRequest) returns (UserIsExistsResponse);
+}
+
+message UserIsExistsRequest {
+  string userId = 1;
+}
+
+message UserIsExistsResponse {
+  bool isExists = 1;
+}

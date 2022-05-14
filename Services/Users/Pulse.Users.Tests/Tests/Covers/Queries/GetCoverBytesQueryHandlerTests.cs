@@ -18,10 +18,11 @@ namespace Pulse.Users.Tests.Tests.Covers.Queries
             GetCoverBytesQuery query = new() { UserId = cover.UserId };
 
 
-            byte[] vm = await handler.Handle(query, CancellationToken.None);
+            GetCoverBytesVm vm = await handler.Handle(query, CancellationToken.None);
 
 
-            Assert.Equal(vm, Photo.Bytes);
+            Assert.Equal(vm.Bytes, Photo.Bytes);
+            Assert.Equal(vm.Extension, System.IO.Path.Combine(cover.FileName));
         }
 
         [Fact]

@@ -50,7 +50,9 @@ namespace Pulse.Users.Application.Handlers.Covers.Commands.DeleteCover
                 }
             }
 
-            database.Covers.Remove(cover);
+            cover.FileName = string.Empty;
+
+            database.Covers.Update(cover);
             await database.SaveChangesAsync(cancellationToken);
 
             logger.LogInformation("The cover was deleted ID: {Id}", cover.Id);

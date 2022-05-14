@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Pulse.Users.Api.Controllers.Base;
 using Pulse.Users.Application.Handlers.Users.Commands.CreateUser;
 using Pulse.Users.Application.Handlers.Users.Commands.DeleteUser;
 using Pulse.Users.Application.Handlers.Users.Commands.UpdateUser;
+using Pulse.Users.Application.Handlers.Users.Queries.GetAccessToken;
 using Pulse.Users.Application.Handlers.Users.Queries.GetUserDetails;
 
 namespace Pulse.Users.Api.Controllers
@@ -24,6 +24,13 @@ namespace Pulse.Users.Api.Controllers
         public async Task<ActionResult<Guid>> Create([FromForm] CreateUserCommand command) =>
             Ok(await Mediator.Send(command));
 
+        [HttpPost]
+        [ApiVersion("1.0")]
+        [ProducesResponseType(typeof(LoginUserVm), 200)]
+        [ProducesResponseType(typeof(string), 400)]
+        public async Task<ActionResult<LoginUserVm>> Login([FromForm] LoginUserQuery query) =>
+            Ok(await Mediator.Send(query));
+
         [HttpPut]
         [ApiVersion("1.0")]
         [ProducesResponseType(200)]
@@ -31,11 +38,11 @@ namespace Pulse.Users.Api.Controllers
         public async Task<ActionResult> Update([FromForm] UpdateUserCommand command) =>
             Ok(await Mediator.Send(command));
 
-        [ApiVersion("1.0")]
-        [HttpDelete("{userId}")]
+        [HttpDelete]
+        [ApiVersion("1.0")]        
         [ProducesResponseType(200)]
         [ProducesResponseType(typeof(string), 400)]
-        public async Task<ActionResult<Guid>> Delete([FromForm] DeleteUserCommand command) =>
+        public async Task<ActionResult> Delete([FromForm] DeleteUserCommand command) =>
             Ok(await Mediator.Send(command));
     }
 }

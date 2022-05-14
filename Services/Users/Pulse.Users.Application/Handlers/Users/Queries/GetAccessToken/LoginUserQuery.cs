@@ -2,7 +2,7 @@
 
 namespace Pulse.Users.Application.Handlers.Users.Queries.GetAccessToken
 {
-    public class GetAccessTokenQuery : IRequest<string>
+    public class LoginUserQuery : IRequest<LoginUserVm>
     {
         public string Email { get; set; }
 

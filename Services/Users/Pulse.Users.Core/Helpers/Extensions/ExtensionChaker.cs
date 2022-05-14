@@ -6,7 +6,7 @@ namespace Pulse.Users.Core.Helpers.Extensions
     {
 
         private static readonly List<string> coverAllowedExtension = new() {
-            ".png", ".jpg", ".jpeg", ".jfif", ".pjpeg", ".pjp"
+            ".png", ".jpg", ".jpeg"
         };
 
         public static bool IsCorrectCoverExtension(string extension)

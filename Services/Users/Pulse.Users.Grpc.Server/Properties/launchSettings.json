@@ -1,0 +1,13 @@
+﻿{
+  "profiles": {
+    "Pulse.Users.Grpc.Services": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "applicationUrl": "http://localhost:5226;https://localhost:7226",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

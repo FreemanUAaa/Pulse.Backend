@@ -4,16 +4,12 @@ using Pulse.Users.Core.Models;
 using Pulse.Users.Core.Options;
 using Pulse.Users.Tests.Tests.Users.Base;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace Pulse.Users.Tests.Tests.Users.Queries
 {
-    public class GetAccessTokenQueryHandlerTests : BaseUserQueryTests<GetAccessTokenQueryHandler>
+    public class GetAccessTokenQueryHandlerTests : BaseUserQueryTests<LoginUserQueryHandler>
     {
         private readonly IOptions<AuthOptions> auth;
 
@@ -30,25 +26,26 @@ namespace Pulse.Users.Tests.Tests.Users.Queries
         public async void GetAccessTokenQueryHandlerSuccess()
         {
             User user = await AddUserToDatabase(CreatedUser);
-            GetAccessTokenQueryHandler handler = new(Database, auth, Logger);
-            GetAccessTokenQuery query = new()
+            LoginUserQueryHandler handler = new(Database, auth, Logger);
+            LoginUserQuery query = new()
             {
                 Email = user.Email,
                 Password = Password,
             };
 
 
-            string token = await handler.Handle(query, CancellationToken.None);
+            LoginUserVm vm = await handler.Handle(query, CancellationToken.None);
 
 
-            Assert.False(string.IsNullOrEmpty(token));
+            Assert.False(string.IsNullOrEmpty(vm.AccessToken));
+            Assert.Equal(user.Id, vm.UserId);
         }
 
         [Fact]
         public async void GetAccessTokenQueryHandlerFailOnWrongEmailOrPassword()
         {
-            GetAccessTokenQueryHandler handler = new(Database, auth, Logger);
-            GetAccessTokenQuery query = new();
+            LoginUserQueryHandler handler = new(Database, auth, Logger);
+            LoginUserQuery query = new();
 
 
             await Assert.ThrowsAsync<Exception>(async () =>
