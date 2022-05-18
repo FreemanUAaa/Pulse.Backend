@@ -29,11 +29,23 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pulse.Users.Grpc.Server", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tracks", "Tracks", "{4FE609F8-B88D-417E-90A1-C2BA577FD57D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pulse.Tracks.Core", "Services\Tracks\Pulse.Tracks.Core\Pulse.Tracks.Core.csproj", "{EB63A66D-4CB9-45C3-B56C-D2CF6D06A158}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pulse.Tracks.Core", "Services\Tracks\Pulse.Tracks.Core\Pulse.Tracks.Core.csproj", "{EB63A66D-4CB9-45C3-B56C-D2CF6D06A158}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pulse.Tracks.Database", "Services\Tracks\Pulse.Tracks.Database\Pulse.Tracks.Database.csproj", "{8E114343-6620-4A47-BA2C-2A4120AB13C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pulse.Tracks.Database", "Services\Tracks\Pulse.Tracks.Database\Pulse.Tracks.Database.csproj", "{8E114343-6620-4A47-BA2C-2A4120AB13C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pulse.Tracks.Application", "Services\Tracks\Pulse.Tracks.Application\Pulse.Tracks.Application.csproj", "{028580A3-E2DD-4331-9058-F339975A5B20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pulse.Tracks.Application", "Services\Tracks\Pulse.Tracks.Application\Pulse.Tracks.Application.csproj", "{028580A3-E2DD-4331-9058-F339975A5B20}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MusicTypes", "MusicTypes", "{F2BC7064-E5CA-4E43-829A-27BC55849AC1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pulse.MusicTypes.Core", "Services\MusicTypes\Pulse.MusicTypes.Core\Pulse.MusicTypes.Core.csproj", "{84273DE3-CB71-4C13-ADE1-B32182A9E7EC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pulse.MusicTypes.Database", "Services\MusicTypes\Pulse.MusicTypes.Database\Pulse.MusicTypes.Database.csproj", "{1A5F1A85-7BBB-45BA-9644-B848056A4847}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pulse.MusicTypes.Application", "Services\MusicTypes\Pulse.MusicTypes.Application\Pulse.MusicTypes.Application.csproj", "{8FAE47B9-6161-43C7-8A1F-1F932C11BCB0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pulse.MusicTypes.Grpc.Serve", "Services\MusicTypes\Pulse.MusicTypes.Grpc.Serve\Pulse.MusicTypes.Grpc.Serve.csproj", "{558098FF-A391-48ED-AC56-33FEA5D29D6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pulse.MusicTypes.Tests", "Services\MusicTypes\Pulse.MusicTypes.Tests\Pulse.MusicTypes.Tests.csproj", "{3DE82033-9EAB-43AD-860E-A23344824341}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,6 +101,26 @@ Global
 		{028580A3-E2DD-4331-9058-F339975A5B20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{028580A3-E2DD-4331-9058-F339975A5B20}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{028580A3-E2DD-4331-9058-F339975A5B20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84273DE3-CB71-4C13-ADE1-B32182A9E7EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84273DE3-CB71-4C13-ADE1-B32182A9E7EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84273DE3-CB71-4C13-ADE1-B32182A9E7EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84273DE3-CB71-4C13-ADE1-B32182A9E7EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A5F1A85-7BBB-45BA-9644-B848056A4847}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A5F1A85-7BBB-45BA-9644-B848056A4847}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A5F1A85-7BBB-45BA-9644-B848056A4847}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A5F1A85-7BBB-45BA-9644-B848056A4847}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FAE47B9-6161-43C7-8A1F-1F932C11BCB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FAE47B9-6161-43C7-8A1F-1F932C11BCB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FAE47B9-6161-43C7-8A1F-1F932C11BCB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FAE47B9-6161-43C7-8A1F-1F932C11BCB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{558098FF-A391-48ED-AC56-33FEA5D29D6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{558098FF-A391-48ED-AC56-33FEA5D29D6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{558098FF-A391-48ED-AC56-33FEA5D29D6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{558098FF-A391-48ED-AC56-33FEA5D29D6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DE82033-9EAB-43AD-860E-A23344824341}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DE82033-9EAB-43AD-860E-A23344824341}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DE82033-9EAB-43AD-860E-A23344824341}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DE82033-9EAB-43AD-860E-A23344824341}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -108,6 +140,12 @@ Global
 		{EB63A66D-4CB9-45C3-B56C-D2CF6D06A158} = {4FE609F8-B88D-417E-90A1-C2BA577FD57D}
 		{8E114343-6620-4A47-BA2C-2A4120AB13C8} = {4FE609F8-B88D-417E-90A1-C2BA577FD57D}
 		{028580A3-E2DD-4331-9058-F339975A5B20} = {4FE609F8-B88D-417E-90A1-C2BA577FD57D}
+		{F2BC7064-E5CA-4E43-829A-27BC55849AC1} = {475ECC68-7633-4FE5-98B3-C2AACEE9C892}
+		{84273DE3-CB71-4C13-ADE1-B32182A9E7EC} = {F2BC7064-E5CA-4E43-829A-27BC55849AC1}
+		{1A5F1A85-7BBB-45BA-9644-B848056A4847} = {F2BC7064-E5CA-4E43-829A-27BC55849AC1}
+		{8FAE47B9-6161-43C7-8A1F-1F932C11BCB0} = {F2BC7064-E5CA-4E43-829A-27BC55849AC1}
+		{558098FF-A391-48ED-AC56-33FEA5D29D6E} = {F2BC7064-E5CA-4E43-829A-27BC55849AC1}
+		{3DE82033-9EAB-43AD-860E-A23344824341} = {F2BC7064-E5CA-4E43-829A-27BC55849AC1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B84B9C09-60AE-41A0-93C1-3D0D1E563211}
