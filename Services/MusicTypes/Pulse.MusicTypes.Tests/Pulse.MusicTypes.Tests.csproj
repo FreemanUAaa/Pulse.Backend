@@ -11,6 +11,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.5" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
     <PackageReference Include="Moq" Version="4.17.2" />
+    <PackageReference Include="Shouldly" Version="4.0.3" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -23,11 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Tests\MusicTypes\Commands\" />
-    <Folder Include="Tests\MusicTypes\Base\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\Pulse.MusicTypes.Application\Pulse.MusicTypes.Application.csproj" />
     <ProjectReference Include="..\Pulse.MusicTypes.Core\Pulse.MusicTypes.Core.csproj" />
     <ProjectReference Include="..\Pulse.MusicTypes.Database\Pulse.MusicTypes.Database.csproj" />
   </ItemGroup>

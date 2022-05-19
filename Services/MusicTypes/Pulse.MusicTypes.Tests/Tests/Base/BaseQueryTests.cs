@@ -1,12 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Extensions.Logging;
+using Moq;
+using Pulse.MusicTypes.Core.Database;
+using Pulse.MusicTypes.Tests.Databases;
 
 namespace Pulse.MusicTypes.Tests.Tests.Base
 {
-    internal class BaseQueryTests
+    public abstract class BaseQueryTests<TLogger> where TLogger : class
     {
+        public readonly IDatabaseContext Database;
+
+        public readonly ILogger<TLogger> Logger;
+
+        public BaseQueryTests()
+        {
+            Database = DatabaseContextFactory.Create();
+
+            Logger = new Mock<ILogger<TLogger>>().Object;
+        }
     }
 }
