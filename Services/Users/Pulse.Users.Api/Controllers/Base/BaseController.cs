@@ -7,11 +7,8 @@ namespace Pulse.Users.Api.Controllers.Base
     [Route("api/{v:apiVersion}/[controller]")]
     public class BaseController : Controller
     {
-        public readonly IMediator Mediator;
+        public IMediator Mediator => HttpContext.RequestServices.GetService(typeof(IMediator)) as IMediator;
 
-        public readonly Guid UserId;
-
-        public BaseController() => 
-            (Mediator, UserId) = (HttpContext.RequestServices.GetService(typeof(IMediator)) as IMediator, Guid.Parse(HttpContext.User.Identity?.Name ?? string.Empty));
+        public Guid UserId => Guid.Parse(HttpContext.User.Identity?.Name ?? string.Empty);
     }
 }

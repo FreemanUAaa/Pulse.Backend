@@ -54,7 +54,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.AddApplicationMiddlewares();
+//app.AddApplicationMiddlewares();
 
 app.UseHttpsRedirection();
 
@@ -64,5 +64,19 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+using (IServiceScope scope = app.Services.CreateScope())
+{
+    try
+    {
+        DatabaseContext context = scope.ServiceProvider.GetRequiredService<DatabaseContext>();
+        DatabaseInitializator.Initializat(context);
+    }
+    catch
+    {
+        //Log.Fatal("Fail to create database");
+        throw new Exception("Fail to create database");
+    }
+}
 
 app.Run();

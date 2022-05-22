@@ -15,7 +15,7 @@ using System.Security.Claims;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Pulse.Users.Application.Handlers.Users.Queries.GetAccessToken
+namespace Pulse.Users.Application.Handlers.Users.Queries.GetLoginUser
 {
     public class LoginUserQueryHandler : IRequestHandler<LoginUserQuery, LoginUserVm>
     {

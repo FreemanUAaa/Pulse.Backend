@@ -40,6 +40,8 @@ namespace Pulse.Users.Application.Handlers.Users.Commands.CreateUser
                 Name = request.Name,
                 Email = request.Email,
                 MusicTypes = new(),
+		PasswordHash = hash,
+		PasswordSalt = salt,
                 Location = "",
                 Website = "",
             };

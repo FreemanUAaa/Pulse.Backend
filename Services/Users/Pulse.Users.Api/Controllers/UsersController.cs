@@ -3,7 +3,7 @@ using Pulse.Users.Api.Controllers.Base;
 using Pulse.Users.Application.Handlers.Users.Commands.CreateUser;
 using Pulse.Users.Application.Handlers.Users.Commands.DeleteUser;
 using Pulse.Users.Application.Handlers.Users.Commands.UpdateUser;
-using Pulse.Users.Application.Handlers.Users.Queries.GetAccessToken;
+using Pulse.Users.Application.Handlers.Users.Queries.GetLoginUser;
 using Pulse.Users.Application.Handlers.Users.Queries.GetUserDetails;
 
 namespace Pulse.Users.Api.Controllers
@@ -17,14 +17,14 @@ namespace Pulse.Users.Api.Controllers
         public async Task<ActionResult<GetUserDetailsVm>> GetDetails([FromRoute] GetUserDetailsQueryHandler query) =>
             Ok(await Mediator.Send(query));
 
-        [HttpPost]
+        [HttpPost("signup")]
         [ApiVersion("1.0")]
         [ProducesResponseType(typeof(Guid), 200)]
         [ProducesResponseType(typeof(string), 400)]
         public async Task<ActionResult<Guid>> Create([FromForm] CreateUserCommand command) =>
             Ok(await Mediator.Send(command));
 
-        [HttpPost]
+        [HttpPost("signin")]
         [ApiVersion("1.0")]
         [ProducesResponseType(typeof(LoginUserVm), 200)]
         [ProducesResponseType(typeof(string), 400)]

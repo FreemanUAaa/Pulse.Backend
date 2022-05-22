@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace Pulse.Users.Application.Handlers.Users.Queries.GetAccessToken
+namespace Pulse.Users.Application.Handlers.Users.Queries.GetLoginUser
 {
     public class LoginUserQueryValidator : AbstractValidator<LoginUserQuery>
     {
