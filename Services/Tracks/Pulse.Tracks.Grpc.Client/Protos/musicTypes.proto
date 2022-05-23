@@ -1,0 +1,22 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "Pulse.MusicTypes.Grpc.Serve";
+
+package grpcMusicTypes;
+
+service GrpcMusicTypes {
+  rpc IsExists (MusicTypeIsExistsRequest) returns (MusicTypeIsExistsResponse);
+}
+
+message MusicTypeIsExistsRequest {
+  repeated string musicTypeIds = 1;
+}
+
+message MusicTypeIsExistsResponse {
+  repeated MusicTypeIsExists Exists = 1;
+}
+
+message MusicTypeIsExists {
+	string musicTypeId = 1;
+	bool IsExists = 2;
+}

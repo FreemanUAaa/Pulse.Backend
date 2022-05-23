@@ -33,7 +33,7 @@ builder.Services.AddSwaggerGen(opt =>
 {
     opt.SwaggerDoc("v1", new OpenApiInfo
     {
-        Title = "User Service",
+        Title = "Music Type Service",
         Version = "v1"
     });
 });

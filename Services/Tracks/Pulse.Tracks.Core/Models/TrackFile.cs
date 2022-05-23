@@ -1,13 +1,11 @@
-﻿namespace Pulse.Tracks.Core.Models
-{
-    public class TrackFile
-    {
-        public Guid Id { get; set; }
+﻿using Pulse.Tracks.Core.Models.Base;
 
+namespace Pulse.Tracks.Core.Models
+{
+    public class TrackFile : BaseEntity
+    {
         public Guid TrackId { get; set; }
 
-        public string FileName { get; set; }
-
-        public TrackFile() => FileName = string.Empty;
+        public string FileName { get; set; } = string.Empty;
     }
 }

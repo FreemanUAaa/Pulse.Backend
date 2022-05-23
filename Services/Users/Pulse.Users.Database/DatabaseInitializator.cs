@@ -6,6 +6,7 @@ namespace Pulse.Users.Database
     {
         public static void Initializat(DbContext context)
         {
+            context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
         }
     }

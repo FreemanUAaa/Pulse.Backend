@@ -7,9 +7,6 @@ namespace Pulse.MusicTypes.Api.Controllers.Base
     [Route("api/{v:apiVersion}/[controller]")]
     public class BaseController : Controller
     {
-        public readonly IMediator? Mediator;
-
-        public BaseController() =>
-            Mediator = HttpContext.RequestServices.GetService(typeof(IMediator)) as IMediator;
+        public IMediator? Mediator => HttpContext.RequestServices.GetService(typeof(IMediator)) as IMediator;
     }
 }

@@ -5,6 +5,7 @@ using Pulse.MusicTypes.Application.Handlers.MusicTypes.Queries.GetMusicTypeList;
 using Pulse.MusicTypes.Api.Controllers.Base;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace Pulse.MusicTypes.Api.Controllers
 {
@@ -14,7 +15,7 @@ namespace Pulse.MusicTypes.Api.Controllers
         [ApiVersion("1.0")]
         [ProducesResponseType(typeof(string), 400)]
         [ProducesResponseType(typeof(GetMusicTypeListQueryVm), 200)]
-        public async Task<ActionResult<GetMusicTypeListQueryVm>> GetList([FromForm] GetMusicTypeListQuery query) =>
+        public async Task<ActionResult<GetMusicTypeListQueryVm>> GetList([FromQuery] GetMusicTypeListQuery query) =>
             Ok(await Mediator!.Send(query));
 
         [HttpPost]

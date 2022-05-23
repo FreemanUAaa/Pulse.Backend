@@ -33,7 +33,7 @@ namespace Pulse.Users.Application.Handlers.Users.Queries.GetLoginUser
             User user = await database.Users.FirstOrDefaultAsync(x => x.Email == request.Email, cancellationToken: cancellationToken);
             ClaimsIdentity identity = GetIdentity(user);
 
-            if (user == null)
+            if (identity == null)
             {
                 throw new Exception(ExceptionStrings.FailedToLogin);
             }
@@ -67,8 +67,13 @@ namespace Pulse.Users.Application.Handlers.Users.Queries.GetLoginUser
                 return null;
             }
 
-            List<Claim> claims = new() { new Claim(ClaimsIdentity.DefaultNameClaimType, user.Id.ToString()), };
-            ClaimsIdentity claimsIdentity = new(claims, "Token", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
+            List<Claim> claims = new() 
+            { 
+                new Claim(ClaimsIdentity.DefaultNameClaimType, user.Id.ToString()), 
+                new Claim(ClaimsIdentity.DefaultRoleClaimType, user.Role),
+            };
+
+            ClaimsIdentity claimsIdentity = new(claims, "Bearer", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
             
             return claimsIdentity;
         }

@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Options;
-using Pulse.Users.Application.Handlers.Users.Queries.GetAccessToken;
+using Pulse.Users.Application.Handlers.Users.Queries.GetLoginUser;
 using Pulse.Users.Core.Models;
 using Pulse.Users.Core.Options;
 using Pulse.Users.Tests.Tests.Users.Base;

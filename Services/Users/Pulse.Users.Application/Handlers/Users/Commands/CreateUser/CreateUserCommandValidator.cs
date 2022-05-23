@@ -10,6 +10,8 @@ namespace Pulse.Users.Application.Handlers.Users.Commands.CreateUser
 
             RuleFor(x => x.Email).NotEmpty().EmailAddress();
 
+            RuleFor(x => x.Role).NotEmpty().Must(x => x == "admin" || x == "user");
+
             RuleFor(x => x.Password).NotEmpty().MinimumLength(8);
         }
     }

@@ -1,10 +1,10 @@
-﻿namespace Pulse.Tracks.Core.Models
-{
-    public class Track
-    {
-        public Guid Id { get; set; }
+﻿using Pulse.Tracks.Core.Models.Base;
 
-        public string Name { get; set; }
+namespace Pulse.Tracks.Core.Models
+{
+    public class Track : BaseEntity
+    {
+        public string Name { get; set; } = string.Empty;
 
         public DateTime Date { get; set; }
 
@@ -12,8 +12,6 @@
 
         public int Duration { get; set; }
 
-        public string Description { get; set; }
-
-        public Track() => (Name, Description) = (string.Empty, string.Empty);
+        public string Description { get; set; } = string.Empty;
     }
 }

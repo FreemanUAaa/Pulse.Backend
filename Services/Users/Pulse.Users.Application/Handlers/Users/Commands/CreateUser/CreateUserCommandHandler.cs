@@ -38,10 +38,11 @@ namespace Pulse.Users.Application.Handlers.Users.Commands.CreateUser
             {
                 Id = Guid.NewGuid(),
                 Name = request.Name,
+                Role = request.Role,
                 Email = request.Email,
                 MusicTypes = new(),
-		PasswordHash = hash,
-		PasswordSalt = salt,
+		        PasswordHash = hash,
+		        PasswordSalt = salt,
                 Location = "",
                 Website = "",
             };

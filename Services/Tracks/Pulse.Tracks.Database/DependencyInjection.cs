@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Pulse.Tracks.Core.Database;
+using Pulse.Tracks.Core.Repositories;
+using Pulse.Tracks.Database.Repositories;
 
 namespace Pulse.Tracks.Database
 {
@@ -11,6 +13,8 @@ namespace Pulse.Tracks.Database
             services.AddDbContext<DatabaseContext>(opt => opt.UseSqlServer(connectionString));
 
             services.AddTransient<IDatabaseContext, DatabaseContext>();
+
+            services.AddTransient<ITrackRepository, TrackRepository>();
 
             return services;
         }
