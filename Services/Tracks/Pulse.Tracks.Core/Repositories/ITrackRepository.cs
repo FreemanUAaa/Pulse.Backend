@@ -5,7 +5,7 @@ namespace Pulse.Tracks.Core.Repositories
 {
     public interface ITrackRepository
     {
-        Task<Track?> Get(Guid trackId);
+        Task<Track?> Get(Expression<Func<Track, bool>> predicate);
 
         Task<IEnumerable<Track?>> GetList(Expression<Func<Track, bool>> predicate);
 

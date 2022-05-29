@@ -1,4 +1,4 @@
-﻿using Pulse.Tracks.Grpc.Client.DTOs;
+﻿using Pulse.Tracks.Core.DTOs;
 
 namespace Pulse.Tracks.Grpc.Client.Services.Interfaces
 {

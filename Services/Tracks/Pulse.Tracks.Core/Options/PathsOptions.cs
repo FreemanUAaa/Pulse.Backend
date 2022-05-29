@@ -2,8 +2,8 @@
 {
     public class PathsOptions
     {
-        public string Tracks { get; set; }
+        public string TrackCovers { get; set; } = string.Empty;
 
-        public PathsOptions(string tracks) => Tracks = tracks;
+        public string TrackSongs { get; set; } = string.Empty;
     }
 }

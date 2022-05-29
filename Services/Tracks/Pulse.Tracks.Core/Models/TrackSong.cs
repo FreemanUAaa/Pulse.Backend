@@ -2,7 +2,7 @@
 
 namespace Pulse.Tracks.Core.Models
 {
-    public class TrackFile : BaseEntity
+    public class TrackSong : BaseEntity
     {
         public Guid TrackId { get; set; }
 

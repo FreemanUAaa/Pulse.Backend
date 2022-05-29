@@ -1,4 +1,4 @@
-﻿namespace Pulse.Tracks.Grpc.Client.DTOs
+﻿namespace Pulse.Tracks.Core.DTOs
 {
     public class MusicTypeIsExistsDTO
     {

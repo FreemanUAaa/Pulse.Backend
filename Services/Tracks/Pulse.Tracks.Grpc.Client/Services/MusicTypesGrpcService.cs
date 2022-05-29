@@ -1,8 +1,8 @@
 ﻿using Grpc.Net.Client;
 using Microsoft.Extensions.Options;
 using Pulse.MusicTypes.Grpc.Serve;
+using Pulse.Tracks.Core.DTOs;
 using Pulse.Tracks.Core.Options;
-using Pulse.Tracks.Grpc.Client.DTOs;
 using Pulse.Tracks.Grpc.Client.Services.Interfaces;
 
 namespace Pulse.Tracks.Grpc.Client.Services

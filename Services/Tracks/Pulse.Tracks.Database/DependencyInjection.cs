@@ -2,7 +2,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using Pulse.Tracks.Core.Database;
 using Pulse.Tracks.Core.Repositories;
-using Pulse.Tracks.Database.Repositories;
 
 namespace Pulse.Tracks.Database
 {
@@ -14,7 +13,7 @@ namespace Pulse.Tracks.Database
 
             services.AddTransient<IDatabaseContext, DatabaseContext>();
 
-            services.AddTransient<ITrackRepository, TrackRepository>();
+            services.AddTransient<IRepositoriesManager, RepositoriesManager>();
 
             return services;
         }

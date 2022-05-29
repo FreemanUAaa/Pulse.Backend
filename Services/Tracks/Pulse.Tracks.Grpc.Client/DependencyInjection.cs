@@ -6,6 +6,8 @@ namespace Pulse.Tracks.Grpc.Client
     {
         public static IServiceCollection AddGrpcClient(this IServiceCollection services)
         {
+            
+
             return services;
         }
     }

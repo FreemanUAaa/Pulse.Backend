@@ -6,17 +6,16 @@ namespace Pulse.Tracks.Database
 {
     public class DatabaseContext : DbContext, IDatabaseContext
     {
-        public DbSet<Track> Tracks { get; set; }
+        public DbSet<Track> Tracks { get; set; } = null!;
 
-        public DbSet<TrackFile> TrackFiles { get; set; }
+        public DbSet<TrackSong> TrackSongs { get; set; } = null!;
 
-        public DbSet<TrackLike> TrackLikes { get; set; }
+        public DbSet<TrackLike> TrackLikes { get; set; } = null!;
 
-        public DbSet<TrackCover> TrackCovers { get; set; }
+        public DbSet<TrackCover> TrackCovers { get; set; } = null!;
 
-        public DbSet<MusicType> MusicTypes { get; set; }
+        public DbSet<MusicType> MusicTypes { get; set; } = null!;
 
-        public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options) =>
-            (Tracks, TrackFiles, TrackLikes, MusicTypes, TrackCovers) = (null!, null!, null!, null!, null!);
+        public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options) { }
     }
 }

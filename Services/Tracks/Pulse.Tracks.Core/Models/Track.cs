@@ -6,11 +6,13 @@ namespace Pulse.Tracks.Core.Models
     {
         public string Name { get; set; } = string.Empty;
 
-        public DateTime Date { get; set; }
+        public DateTime CreatedDate { get; set; }
 
         public Guid UserId { get; set; }
 
         public int Duration { get; set; }
+
+        public int Listening { get; set; }
 
         public string Description { get; set; } = string.Empty;
     }
